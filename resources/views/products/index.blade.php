@@ -46,7 +46,7 @@
 
 </table>
 
-<div class="d-flex justify-content-space">
+<div class="d-flex justify-content-between">
     {!! $products->links() !!}
     <form action="{{ route('products.index') }}" method="post">
         @csrf
