@@ -21,7 +21,8 @@
 </html>
 
 <script>
-    function getTableSize(){
+    function getTableSize(e){
+        e.preventDefault();
         document.getElementById('getTable').click();
     }
 </script>

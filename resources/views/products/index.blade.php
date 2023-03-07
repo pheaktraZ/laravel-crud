@@ -50,17 +50,13 @@
     {!! $products->links() !!}
     <form action="{{ route('products.index') }}" method="post">
         @csrf
-        <select name="table_size" id="page" onchange="getTableSize()" class="form-select float-end">
+        <select name="table_size" id="page" onchange="getTableSize(e)" class="form-select float-end">
             <option value="10">10</option>
             <option value="20">20</option>
         </select>
-        <button type="hidden" id="getTable"></button>
+        <button type="submit" id="getTable" class="d-none"></button>
     </form>
 </div>
 @endsection
 
-<script>
-    function getTableSize(){
-        document.getElementById('getTable').click();
-    }
-</script>
+
