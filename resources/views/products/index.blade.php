@@ -24,6 +24,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Detail</th>
+        <th>Image</th>
         <th>Action</th>
     </tr>
 
@@ -32,6 +33,9 @@
             <td> {{ $product->id }} </td>
             <td> {{ $product->name }} </td>
             <td> {{ $product->detail }} </td>
+            <td>
+                <img width="50" src="../storage/image/{{$product->thumbnail}}" alt="{{ $product->thumbnail}}">
+            </td>
             <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="post">
                     <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>

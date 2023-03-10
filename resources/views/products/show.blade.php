@@ -15,6 +15,8 @@
         <ul>
             <li> {{ $product->name }} </li>
             <li> {{ $product->detail }} </li>
+            <img width="200" src="../storage/image/{{$product->thumbnail}}" alt="{{ $product->thumbnail}}">
+
         </ul>
     </div>
 </div>

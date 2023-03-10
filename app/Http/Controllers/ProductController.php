@@ -48,8 +48,20 @@ class ProductController extends Controller
         //validate the input
         $request->validate([
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            // 'thumbnail' => 'required'
         ]);
+
+        // move file upload
+        if($request->hasFile('image')){
+            $destination_path  = 'public/image';
+            $file  = $request->file('image');
+            $file_name = time() . '-' . $file->getClientOriginalName();
+            $path = $request->file('image')
+            ->storeAs($destination_path,$file_name);
+
+            $request['thumbnail'] = $file_name;
+        }
 
         // create a new product in the database
         Product::create($request->all());
@@ -95,8 +107,20 @@ class ProductController extends Controller
         //validate the input
         $request->validate([
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            'thumbnail' => 'required'
         ]);
+
+        // move file upload
+        if ($request->hasFile('image')) {
+            $destination_path  = 'public/image';
+            $file  = $request->file('image');
+            $file_name = time() . '-' . $file->getClientOriginalName();
+            $path = $request->file('image')
+            ->storeAs($destination_path, $file_name);
+
+            $request['thumbnail'] = $file_name;
+        }
 
         // update new value
         $product->update($request->all());
@@ -121,6 +145,8 @@ class ProductController extends Controller
         ->with('success', 'Product Deleted Successfully');
 
     }
+
+
 }
 
 ?>
